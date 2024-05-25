@@ -9,31 +9,53 @@ const phoneVersionBtn = document.getElementById("phoneVersionBtn");
 const computerVersionBtn = document.getElementById("computerVersionBtn");
 const appImage = document.getElementById("appImage");
 
+// Funkcja do obsługi wiadomości WebSocket dla określonej pary walutowej
+function handleWebSocketMessage(event, priceElement, loadCallback) {
+  const data = JSON.parse(event.data);
+  const price = parseFloat(data.p).toFixed(2);
+  priceElement.innerHTML = "$" + price;
+  if (loadCallback) loadCallback(price); // Przekazujemy cenę do funkcji zwrotnej
+}
+
+// Funkcja do tworzenia WebSocket dla określonej pary walutowej
+function createWebSocket(url, priceElement, loadCallback) {
+  const socket = new WebSocket(url);
+  socket.onmessage = function (event) {
+    handleWebSocketMessage(event, priceElement, loadCallback);
+  };
+}
+
+// Funkcja do pobrania z danych określonej zmiany ceny
+function getChangeValue(data, objectNumber, writeChange) {
+  const valueToChange = data.data.coins[objectNumber].change;
+  writeChange.innerHTML = valueToChange + "%";
+}
+
 const fetchCoins = async () => {
   try {
+    const container = document.getElementById("cryptoPriceContainer");
+    container.classList.add("blurred");
+
     const response = await fetch("https://api.coinranking.com/v2/coins", options);
     const data = await response.json();
     console.log(data);
-    //Kontener nie będzie widoczny, dopóki nie załadują się elementy
-    const container = document.getElementById("cryptoPriceContainer");
-    container.classList.add("blurred");
-    let loadedCount = 0;
-    const totalToLoad = 5;
 
-    const handleLoad = () => {
-      loadedCount++;
-      if (loadedCount === totalToLoad) {
+    const loadedPrices = new Set();
+
+    const handleLoad = (price) => {
+      // Dodajemy price jako argument
+      loadedPrices.add(price);
+      if (loadedPrices.size === 5) {
         container.classList.remove("blurred");
       }
     };
-    // Wywolanie funkcji, by móc wyświetlać ceny
+
     createWebSocket("wss://stream.binance.com:9443/ws/btcusdt@trade", document.getElementById("btcPrice"), handleLoad);
     createWebSocket("wss://stream.binance.com:9443/ws/ethusdt@trade", document.getElementById("ethPrice"), handleLoad);
     createWebSocket("wss://stream.binance.com:9443/ws/bnbusdt@trade", document.getElementById("bnbPrice"), handleLoad);
     createWebSocket("wss://stream.binance.com:9443/ws/xrpusdt@trade", document.getElementById("xrpPrice"), handleLoad);
     createWebSocket("wss://stream.binance.com:9443/ws/dotusdt@trade", document.getElementById("dotPrice"), handleLoad);
 
-    // Zmiana ceny poszczególnych kryptowalut
     getChangeValue(data, 0, btcPriceChange);
     getChangeValue(data, 1, ethPriceChange);
     getChangeValue(data, 3, bnbPriceChange);
@@ -69,28 +91,6 @@ const createNews = async () => {
 
 createNews();
 fetchCoins();
-
-// Funkcja do obsługi wiadomości WebSocket dla określonej pary walutowej
-function handleWebSocketMessage(event, priceElement) {
-  const data = JSON.parse(event.data);
-  const price = parseFloat(data.p).toFixed(2);
-  priceElement.innerHTML = "$" + price;
-}
-
-// Funkcja do tworzenia WebSocket dla określonej pary walutowej
-function createWebSocket(url, priceElement, loadCallback) {
-  const socket = new WebSocket(url);
-  socket.onmessage = function (event) {
-    handleWebSocketMessage(event, priceElement);
-    if (loadCallback) loadCallback(); // Wywołaj funkcję zwrotną, jeśli została dostarczona
-  };
-}
-
-// Funkcja do pobrania z danych określonej zmiany ceny
-function getChangeValue(data, objectNumber, writeChange) {
-  const valueToChange = data.data.coins[objectNumber].change;
-  writeChange.innerHTML = valueToChange + "%";
-}
 
 // funkcja, zmieniajaca kolor roznicy procentowej w zaleznosci od tego, czy jest ona na plusie czy na minusie
 function checkPriceColor(cryptoChangeID, value) {
