@@ -1,0 +1,409 @@
+body {
+  background-color: #181a20;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  color: white;
+}
+.lazyload {
+  opacity: 0;
+  transition: opacity 2.5s ease;
+}
+
+.lazyload.loaded {
+  opacity: 1;
+}
+.blurred {
+  filter: blur(5px);
+  transition: filter 0.5s ease;
+}
+
+.logo {
+  color: gold;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 0.9rem;
+}
+button {
+  cursor: pointer;
+}
+header {
+  display: flex;
+  justify-content: space-around;
+  /* justify-content: space-between; */
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  padding: 1%;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left-header p:hover,
+.right-header p:hover,
+#loginBtn:hover {
+  color: gold;
+  cursor: pointer;
+}
+.left-header p,
+.right-header p,
+.right-header button {
+  padding-right: 20px;
+}
+.right-header i {
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.classic-button {
+  font-family: "Roboto", sans-serif;
+  align-items: center;
+  background-color: #ffd700;
+  color: black;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  padding: 0.2rem 0.4rem;
+  transition: 1s;
+  border: 0 solid black;
+  font-weight: 700;
+}
+#loginBtn,
+#registerBtn {
+  font-family: "Roboto", sans-serif;
+  background-color: #181a20;
+  font-size: 0.9rem;
+  color: white;
+  border: 0 solid black;
+  transition: 1s;
+  font-weight: 700;
+}
+#registerBtn {
+  display: flex;
+  align-items: center;
+  background-color: #ffd700;
+  color: black;
+  border-radius: 10px;
+  padding: 0.2rem 0.4rem;
+}
+
+.fa-gift {
+  background-color: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: black;
+  padding: 0.2rem 0.4rem;
+}
+#registerBtn:hover,
+.letsBeginBtn:hover {
+  background-color: #b69a01;
+  border: 0px solid #b69a01;
+}
+
+header div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fa-qrcode {
+  padding-left: 20px;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+main button + p {
+  font-size: 0.8rem;
+}
+.buyBitcoin-text {
+  font-size: 3rem;
+}
+.buyBitcoin-text h2 span {
+  color: gold;
+}
+.crypto-logo {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 3px;
+}
+.letsBegin {
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+  background-color: #1e2329;
+  border: 1px solid rgb(85, 84, 84);
+  border-radius: 10px;
+  color: white;
+  transition: 1s;
+}
+.letsBegin:hover {
+  border: 1px solid #ffd700;
+}
+.letsBegin:focus {
+  outline: none;
+}
+.letsBeginBtn {
+  background-color: #ffd700;
+  border: 1px solid #ffd700;
+  color: black;
+  padding: 1rem 1.2rem;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  box-shadow: 3px 1px 10px 2px black;
+  transition: 1s;
+}
+
+.fa-gifts {
+  color: #ffd700;
+}
+.cryptoPrice {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  margin: 3rem;
+  padding: 2rem;
+  background-color: #1e2329;
+  border-radius: 20px;
+  width: 300px;
+}
+.cryptoPrice div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.singleCryptoShort {
+  font-weight: 700;
+  margin-right: 1rem;
+}
+.singleCryptoName {
+  margin-right: 0.2rem;
+  flex: 1;
+  color: gray;
+}
+.cryptoPriceChange {
+  margin-left: 2rem;
+}
+.cryptoNews p {
+  margin: 0.5rem;
+}
+.news-list {
+  margin: 10px;
+  padding: 10px;
+  color: white;
+}
+.appAndLinks {
+  flex-direction: row;
+  gap: 6rem;
+}
+.picturesOfApp {
+  /* display: flex; */
+  flex-direction: column;
+  /* justify-content: center;
+  text-align: center; */
+}
+.picturesOfApp img {
+  padding: 0px;
+  margin: 0px;
+  width: 35rem;
+}
+.picturesOfAppBtn {
+  background: none;
+  color: gray;
+  border: none;
+  font-size: 0.9rem;
+  transition: 1s;
+}
+
+.picturesOfAppBtn:hover {
+  color: white;
+}
+.qrCodeToApp {
+  width: 9rem;
+  border-radius: 15px;
+  padding: 15px;
+  border: 1px solid gray;
+}
+
+.questionsAndHelps {
+  flex-direction: column;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: 1s;
+  cursor: pointer;
+}
+.question:hover {
+  background-color: #1e2329;
+}
+.singleQuestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.singleAnswer {
+  display: none;
+}
+.fa-plus {
+  padding: 2px;
+  border-radius: 2px;
+}
+.question:hover .fa-plus {
+  background-color: gold;
+  color: black;
+}
+
+.fa-numbers {
+  padding: 8px;
+  border: 1px solid gray;
+  border-radius: 8px;
+}
+
+footer {
+  margin-top: 6rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  /* box-shadow: 1px -10px 100px 1px rgb(110, 109, 109); */
+  border-top: 1px solid rgb(110, 109, 109);
+}
+
+#burger-toggle {
+  display: none;
+}
+
+.burger-icon {
+  cursor: pointer;
+  display: none;
+}
+
+.menu {
+  position: absolute;
+  top: 5%;
+  left: 70%;
+  background-color: #181a20;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+.menu li {
+  padding: 10px;
+}
+
+#burger-toggle:checked ~ .menu {
+  display: block;
+}
+#downloadBtns {
+  display: none;
+}
+.user-menu {
+  flex-direction: column;
+  border: 1px solid gray;
+  padding: 2%;
+  max-width: 60%;
+  border-radius: 20px;
+}
+@media screen and (max-width: 960px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+  .burger-icon {
+    display: block;
+  }
+  .left-header {
+    display: none;
+  }
+
+  header {
+    justify-content: space-between;
+  }
+  .fa-bars {
+    font-size: 1.5rem;
+  }
+  .appAndLinks {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 630px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .burger-icon {
+    display: block;
+  }
+  .left-header {
+    display: none;
+  }
+  .right-header {
+    display: none;
+  }
+
+  header {
+    justify-content: space-between;
+  }
+  .buyBitcoin-text h2 {
+    font-size: 4rem;
+  }
+  .fa-bars {
+    font-size: 1.5rem;
+  }
+  .appAndLinks {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .appAndLinks {
+    gap: 2rem;
+  }
+  .picturesOfAppBtn {
+    display: none;
+  }
+  #appImage {
+    content: url("assets/phoneApp.svg");
+  }
+  .picturesOfApp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .picturesOfApp img {
+    padding: 0px;
+    margin: 0px;
+    width: 15rem;
+  }
+  .appstoreimg {
+    background-color: transparent;
+  }
+  .noOnPhone {
+    display: none;
+  }
+
+  .phoneDownloadBtns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #downloadBtns {
+    display: block;
+  }
+}

@@ -1,0 +1,78 @@
+body {
+  background-color: #181a20;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Roboto", sans-serif;
+  color: white;
+}
+.logo {
+  color: gold;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 1.2rem;
+}
+.centerOfPage {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid gray;
+  padding: 2rem 2.2rem 2.5rem 2.2rem;
+  border-radius: 20px;
+}
+.centerOfPage a {
+  text-decoration: none;
+  color: gold;
+  transition: 1s;
+}
+.letsBegin {
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+  background-color: #1e2329;
+  border: 1px solid rgb(85, 84, 84);
+  border-radius: 10px;
+  width: 200px;
+  color: white;
+  transition: 1s;
+  margin-bottom: 2rem;
+}
+.letsBegin:hover {
+  border: 1px solid #ffd700;
+}
+
+.letsBegin:focus {
+  outline: none;
+}
+.nextStepLogin {
+  display: inline-block;
+  font-size: 1.2rem;
+  background-color: #ffd700;
+  text-align: center;
+  color: black;
+  border-radius: 10px;
+  padding: 0.5rem 0.4rem;
+  border: 1px solid #ffd700;
+  transition: 1s;
+  cursor: pointer;
+}
+
+.nextStepLogin:hover {
+  background-color: #b69a01;
+  border: 1px solid #b69a01;
+}
+
+.centerOfPage a:hover {
+  color: #b69a01;
+}
+.conditions {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.alert-error {
+  color: red;
+}
+.fa-eyes {
+  padding-left: 10px;
+}

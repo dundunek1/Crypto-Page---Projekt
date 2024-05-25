@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyOwnCryptoPage</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/592f9931a1.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap" rel="stylesheet" />
+    <script defer src="app.js"></script>
+    <script defer src="login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header>
+      <p class="logo"><i class="fa-brands fa-bitcoin"></i>MyOwnCryptoPage</p>
+
+      <div class="left-header">
+        <p>Kup kryptowaluty</p>
+        <p>Earn</p>
+        <p>Wiadomości ze świata</p>
+      </div>
+
+      <div class="right-header">
+        <p><i class="fa-solid fa-magnifying-glass"></i></p>
+        <button id="loginBtn" class="classic-button" onclick="redirectTo('login.html')">Zaloguj się</button>
+        <button id="registerBtn" class="classic-button" onclick="redirectTo('register.html')"><i class="fa-solid fa-gift"></i> Zarejestruj się</button>
+        <p><i class="fa-solid fa-qrcode"></i></p>
+        <p><i class="fa-solid fa-earth-americas"></i></p>
+      </div>
+      <input type="checkbox" id="burger-toggle" />
+      <label for="burger-toggle" class="burger-icon"><i class="fa-solid fa-bars"></i></label>
+      <ul class="menu">
+        <button id="loginBtn" class="classic-button" onclick="redirectTo('login.html')">Zaloguj się</button>
+        <button id="registerBtn" class="classic-button" onclick="redirectTo('register.html')"><i class="fa-solid fa-gift"></i> Zarejestruj się</button>
+        <li>Kup kryptowaluty</li>
+        <li>Rynki</li>
+        <li>Handluj</li>
+      </ul>
+    </header>
+
+    <main>
+      <div class="buyBitcoin-text">
+        <h2>
+          <span>Kup Bitcoina</span> <br />i 350+ innych<br />
+          kryptowalut
+        </h2>
+        <input placeholder="E-mail/Numer telefonu" class="letsBegin" id="mainPageEmailOrNumber" />
+        <button class="letsBeginBtn" onclick="AccessToWebsite('mainPageBegin')">Zacznij juz teraz</button>
+        <p><i class="fa-solid fa-gifts"></i> Zarejestruj się już teraz i zdobądź do 100 USDT w nagrodach</p>
+      </div>
+      <div>
+        <div class="cryptoPrice" id="cryptoPriceContainer">
+          <div class="cryptoOptions">
+            <span>Popularne</span>
+            <!-- <span> Nowe</span> -->
+          </div>
+          <div class="cryptoPriceRow">
+            <img src="assets/logo-bitcoin.png" class="crypto-logo" alt="BTC Logo" /><span class="singleCryptoShort">BTC</span><span class="singleCryptoName">Bitcoin</span
+            ><span id="btcPrice" class="singleCrypto"></span><span class="cryptoPriceChange" id="btcPriceChange"></span>
+          </div>
+          <div class="cryptoPriceRow">
+            <img src="assets/logo-eth.png" class="crypto-logo" alt="ETH Logo" /><span class="singleCryptoShort">ETH</span><span class="singleCryptoName">Ethereum</span
+            ><span id="ethPrice" class="singleCrypto"></span><span class="cryptoPriceChange" id="ethPriceChange"></span>
+          </div>
+          <div class="cryptoPriceRow">
+            <img src="assets/logo-bnb.png" class="crypto-logo" alt="BNB logo" /><span class="singleCryptoShort">BNB</span><span class="singleCryptoName">BNB</span
+            ><span id="bnbPrice" class="singleCrypto"></span><span class="cryptoPriceChange" id="bnbPriceChange"></span>
+          </div>
+
+          <div class="cryptoPriceRow">
+            <img src="assets/logo-polkadot.png" class="crypto-logo" alt="DOT logo" /><span class="singleCryptoShort">DOT</span><span class="singleCryptoName">Polkadot</span
+            ><span id="dotPrice" class="singleCrypto"></span><span class="cryptoPriceChange" id="dotPriceChange"></span>
+          </div>
+          <div class="cryptoPriceRow">
+            <img src="assets/logo-xrp.png" class="crypto-logo" alt="XRP logo" /><span class="singleCryptoShort">XRP</span><span class="singleCryptoName">Ripple</span
+            ><span id="xrpPrice" class="singleCrypto"></span><span class="cryptoPriceChange" id="xrpPriceChange"></span>
+          </div>
+        </div>
+        <div class="cryptoPrice cryptoNews">
+          <p>Najnowsze wiadomości ze świata!</p>
+          <ul id="newsList">
+            <li id="news1"></li>
+            <li id="news2"></li>
+            <li id="news3"></li>
+            <li id="news4"></li>
+            <li id="news5"></li>
+          </ul>
+          <p>Wyświetl więcej wiadomości <i class="fa-solid fa-arrow-right-long"></i></p>
+        </div>
+      </div>
+    </main>
+    <section class="appAndLinks flex-center lazyload">
+      <div class="picturesOfApp flex-center">
+        <img src="assets/desktopApp.png" alt="picture Of Version" id="appImage" />
+        <div><button id="computerVersionBtn" class="picturesOfAppBtn">Wersja na komputer</button><button id="phoneVersionBtn" class="picturesOfAppBtn">Smartfon</button></div>
+      </div>
+      <div class="linksToApp">
+        <h2>
+          Handluj w ruchu w dowolnym <br />
+          miejscu i czasie.
+        </h2>
+        <img src="assets/qrCodeToApp.png" alt="QR code to APP" class="qrCodeToApp noOnPhone" />
+        <p class="noOnPhone">Zeskanuj, by pobrać aplikację</p>
+        <div class="phoneDownloadBtns">
+          <a href="#"><img src="assets/logo-AppStore.png" alt="Click to download app from AppStore" id="downloadBtns" /></a>
+          <a href="#"><img src="assets/logo-GooglePlay.png" alt="Click to download app from GooglePlay" id="downloadBtns" /></a>
+        </div>
+      </div>
+    </section>
+    <section class="questionsAndHelps flex-center lazyload">
+      <h2>Często zadawane pytania</h2>
+      <div class="question">
+        <div class="singleQuestion" onclick="toggleAnswer(this)">
+          <p class="fa-numbers">1</p>
+          <p>Czym jest giełda kryptowalutowa?</p>
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="singleAnswer">
+          <p>
+            Giełda kryptowalutowa to platforma internetowa, na której handluje się różnymi rodzajami kryptowalut, takimi jak Bitcoin, Ethereum czy Litecoin. Umożliwia ona
+            użytkownikom kupno, sprzedaż oraz wymianę kryptowalut za inne kryptowaluty lub tradycyjne waluty fiat. Giełdy kryptowalutowe działają na podobnej zasadzie co tradycyjne
+            giełdy, umożliwiając handel w czasie rzeczywistym i zapewniając narzędzia do analizy rynku.
+          </p>
+        </div>
+      </div>
+      <div class="question">
+        <div class="singleQuestion" onclick="toggleAnswer(this)">
+          <p class="fa-numbers">2</p>
+          <p>Jakie produkty dostarczamy?</p>
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="singleAnswer">
+          <p>
+            Nasza platforma dostarcza szeroki wybór kryptowalut, aby sprostać różnorodnym potrzebom i preferencjom naszych użytkowników. Wśród najpopularniejszych kryptowalut,
+            które oferujemy, znajdują się:
+          </p>
+          <ol>
+            <li>
+              Bitcoin (BTC) - Powszechnie uważany za pierwszą i najbardziej znaną kryptowalutę. Bitcoin jest cyfrową walutą, która umożliwia szybkie i bezpieczne transakcje na
+              całym świecie.
+            </li>
+            <li>
+              Ethereum (ETH) - Ethereum to platforma blockchain, która umożliwia tworzenie i uruchamianie inteligentnych kontraktów oraz decentralizowanych aplikacji (DApps).
+              Ether, kryptowaluta związana z Ethereum, jest popularnym wyborem dla inwestorów i programistów.
+            </li>
+            <li>
+              Binance Coin (BNB) - Binance Coin jest kryptowalutą stworzoną przez giełdę kryptowalut Binance. Służy do opłacania opłat na platformie Binance oraz do uczestnictwa w
+              ekosystemie usług oferowanych przez tę giełdę.
+            </li>
+            <li>
+              Ripple (XRP) - Ripple to firma fintechowa, która tworzy technologie płatności oparte na blockchainie. XRP jest kryptowalutą używaną do przetwarzania transakcji na
+              sieci RippleNet.
+            </li>
+            <li>
+              Solana (SOL) - Solana to blockchain zaprojektowany w celu obsługi dużych wolumenów transakcji przy niskich opłatach i szybkich czasach potwierdzenia. Jest coraz
+              bardziej popularny wśród programistów i użytkowników DeFi.
+            </li>
+          </ol>
+          <p>
+            To tylko kilka przykładów spośród szerokiej gamy kryptowalut, które są dostępne na naszej platformie. Bez względu na to, czy jesteś inwestorem poszukującym stabilnych
+            aktywów, czy też zainteresowanym nowymi projektami związanymi z blockchainem, mamy wiele opcji, które mogą Cię zainteresować.
+          </p>
+        </div>
+      </div>
+      <div class="question">
+        <div class="singleQuestion" onclick="toggleAnswer(this)">
+          <p class="fa-numbers">3</p>
+          <p>Jak kupić Bitcoina i inne kryptowaluty?</p>
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="singleAnswer">
+          <p>
+            Istnieje kilka sposobów na zakup kryptowalut. Możesz użyć karty kredytowej/debetowej, salda gotówkowego lub Apple Pay/Google Pay. Przed rozpoczęciem transakcji upewnij
+            się, że proces Weryfikacji tożsamości dla swojego konta został ukończony prawidłowo.
+          </p>
+        </div>
+      </div>
+      <div class="question">
+        <div class="singleQuestion" onclick="toggleAnswer(this)">
+          <p class="fa-numbers">4</p>
+          <p>Kto jest twórca tej strony i na czym ją wzorował?</p>
+          <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="singleAnswer">
+          <p>
+            Stronę zaprojektował: <a href="https://github.com" target="_blank" rel="Link to GitHub"><i class="fa-brands fa-github"></i>dundunek1</a>
+          </p>
+          <p>
+            Projektując tę stronę, zainspirowałem się oficjalną stroną Binance (https://www.binance.com), starając się odzwierciedlić podobną wygodę i różnorodność opcji zakupu
+            kryptowalut. Jest to element mojego portfolio, w którym staram się prezentować moje umiejętności projektowania stron internetowych.
+          </p>
+        </div>
+      </div>
+    </section>
+    <footer class="lazyload">
+      <p>Zmiana motywu: <i class="fa-regular fa-sun"></i></p>
+      <p>
+        <a href="https://github.com" target="_blank" rel="Link to GitHub"><i class="fa-brands fa-github"></i>dundunek1</a>
+      </p>
+    </footer>
+  </body>
+</html>

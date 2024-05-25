@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyOwnCryptoPage/register</title>
+    <link rel="stylesheet" href="login.css" />
+    <script defer src="login.js"></script>
+    <script src="https://kit.fontawesome.com/592f9931a1.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div class="centerOfPage">
+      <p class="logo"><i class="fa-brands fa-bitcoin"></i>MyOwnCryptoPage</p>
+      <h2>Już ostatnia prosta..</h2>
+      <p>Hasło:</p>
+      <div><input type="password" placeholder="Hasło.." class="letsBegin" id="userPassword" /><i class="fa-solid fa-eye-slash fa-eyes" id="showPasswordBtn"></i></div>
+      <p>Powtórz hasło:</p>
+      <div>
+        <input type="password" placeholder="Powtórzone hasło..." class="letsBegin" id="userPasswordRepeat" /><i class="fa-solid fa-eye-slash fa-eyes" id="showPasswordBtn"></i>
+      </div>
+      <p class="alert-error" id="passwordError"></p>
+      <button class="nextStepLogin" onclick="AccessToWebsite('thirdStepRegister')">Dalej</button>
+      <p><a href="login.html">Masz już konto? Zaloguj się!</a></p>
+    </div>
+  </body>
+</html>
