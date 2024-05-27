@@ -84,17 +84,19 @@ function addContact(emailOrNumber) {
   }
 }
 
-let showPasswordBtn = document.getElementById("showPasswordBtn");
-let passwordLoginInput = document.getElementById("passwordToCheck");
+document.querySelectorAll(".fa-eyes").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // Pobierz powiązane pole hasła
+    const passwordInput = btn.previousElementSibling;
 
-showPasswordBtn.addEventListener("click", () => {
-  if (showPasswordBtn.classList.contains("fa-eye-slash")) {
-    passwordLoginInput.type = "text";
-    showPasswordBtn.classList.remove("fa-eye-slash");
-    showPasswordBtn.classList.add("fa-eye");
-  } else {
-    passwordLoginInput.type = "password";
-    showPasswordBtn.classList.remove("fa-eye");
-    showPasswordBtn.classList.add("fa-eye-slash");
-  }
+    if (btn.classList.contains("fa-eye-slash")) {
+      passwordInput.type = "text";
+      btn.classList.remove("fa-eye-slash");
+      btn.classList.add("fa-eye");
+    } else {
+      passwordInput.type = "password";
+      btn.classList.remove("fa-eye");
+      btn.classList.add("fa-eye-slash");
+    }
+  });
 });
