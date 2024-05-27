@@ -120,8 +120,8 @@ document.addEventListener("DOMContentLoaded", function () {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
         const element = entry.target;
-        element.classList.add("loaded"); // Dodanie klasy, która wyzwala ładowanie treści
-        observer.unobserve(element); // Przestanie obserwować, gdy element jest widoczny
+        element.classList.add("loaded"); 
+        observer.unobserve(element); 
       }
     });
   }, lazyLoadOptions);
