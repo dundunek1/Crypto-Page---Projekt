@@ -9,7 +9,7 @@ function AccessToWebsite(value) {
     if (loginToCheck === userData.email || loginToCheck === userData.phone) {
       if (passwordToCheck === userData.userPassword) {
         loginError.innerHTML = "";
-        alert("Gratulacje, zalogowales sieXD");
+        alert("Gratulacje, zalogowales sie");
       } else {
         loginError.innerHTML = "Błędne hasło";
       }
