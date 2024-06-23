@@ -1,3 +1,5 @@
+//Tutaj znajduje się serwer stworzony w Node.js
+//Jeszcze nie zaimplementowany
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
